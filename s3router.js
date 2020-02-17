@@ -32,6 +32,10 @@ function S3Router(options, middleware) {
       if (options.signatureVersion) {
         s3Options.signatureVersion = options.signatureVersion;
       }
+      if (options.accessKeyId && options.secretAccessKey) {
+          s3Options.accessKeyId = options.accessKeyId;
+          s3Options.secretAccessKey = options.secretAccessKey;
+      }
 
       getS3 = function() {
         return new aws.S3(s3Options);
